@@ -458,23 +458,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1933932813442915919, guid: 684f20186547bab4bbe828c2d08f0a09, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.28112313
+      value: -0.28041703
       objectReference: {fileID: 0}
     - target: {fileID: 1933932813442915919, guid: 684f20186547bab4bbe828c2d08f0a09, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08069012
+      value: 0.0786986
       objectReference: {fileID: 0}
     - target: {fileID: 1933932813442915919, guid: 684f20186547bab4bbe828c2d08f0a09, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.95424753
+      value: -0.9541696
       objectReference: {fileID: 0}
     - target: {fileID: 1933932813442915919, guid: 684f20186547bab4bbe828c2d08f0a09, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.062213283
+      value: 0.06879942
       objectReference: {fileID: 0}
     - target: {fileID: 1933932813442915919, guid: 684f20186547bab4bbe828c2d08f0a09, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 4.207
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1933932813442915919, guid: 684f20186547bab4bbe828c2d08f0a09, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -509,7 +509,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc4bd72c24b1d411a8918969f38fcb51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  _speed: 2
+  velocidad: 15
+  velocidadGiro: 30
 --- !u!1 &2091487303
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,7 +637,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc4bd72c24b1d411a8918969f38fcb51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  _speed: 0
+  velocidad: 10
+  velocidadGiro: 50
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
