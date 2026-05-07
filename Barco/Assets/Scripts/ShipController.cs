@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Windows;
 
 public class ShipController : MonoBehaviour
 {
@@ -10,16 +7,29 @@ public class ShipController : MonoBehaviour
     public float velocidadGiro = 50f;
 
     private Vector2 _input;
+    [SerializeField] private Rigidbody _rb;
 
-    void Update()
+
+
+    void FixedUpdate()
     {
-      float movimientoVertical = _input.y;
-        
-      float movimientoHorizontal = _input.x;
+        float inputvertical = _input.y;
 
-      transform.Translate(Vector3.forward * movimientoVertical * velocidad * Time.deltaTime);
+        float inputHorizontal = _input.x;
 
-      transform.Rotate(Vector3.up * movimientoHorizontal * velocidadGiro * Time.deltaTime);
+        Vector3 vectorDeGiro = new Vector3(0, velocidadGiro * inputHorizontal, 0);
+        Quaternion deltaRotation = Quaternion.Euler(vectorDeGiro * Time.fixedDeltaTime);
+
+        Vector3 movimiento = transform.forward * inputvertical * velocidad * Time.fixedDeltaTime;
+
+        Debug.Log(movimiento);
+
+        _rb.MovePosition(_rb.position + movimiento);
+        _rb.MoveRotation(_rb.rotation * deltaRotation);
+
+        //Movimiento por transform (sin fisicas)
+        //transform.Translate(Vector3.forward * movimientoVertical * velocidad * Time.deltaTime);
+        //transform.Rotate(Vector3.up * movimientoHorizontal * velocidadGiro * Time.deltaTime);
     }
 
     public void OnMove(InputValue value)
