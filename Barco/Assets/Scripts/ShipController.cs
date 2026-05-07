@@ -10,30 +10,22 @@ public class ShipController : MonoBehaviour
     [SerializeField] private Rigidbody _rb;
 
 
-
     void FixedUpdate()
     {
-        float inputvertical = _input.y;
+        Vector3 move = transform.forward * _input.y * velocidad;
+        _rb.linearVelocity = move;
 
-        float inputHorizontal = _input.x;
-
-        Vector3 vectorDeGiro = new Vector3(0, velocidadGiro * inputHorizontal, 0);
-        Quaternion deltaRotation = Quaternion.Euler(vectorDeGiro * Time.fixedDeltaTime);
-
-        Vector3 movimiento = transform.forward * inputvertical * velocidad * Time.fixedDeltaTime;
-
-        Debug.Log(movimiento);
-
-        _rb.MovePosition(_rb.position + movimiento);
-        _rb.MoveRotation(_rb.rotation * deltaRotation);
-
-        //Movimiento por transform (sin fisicas)
-        //transform.Translate(Vector3.forward * movimientoVertical * velocidad * Time.deltaTime);
-        //transform.Rotate(Vector3.up * movimientoHorizontal * velocidadGiro * Time.deltaTime);
+        float rot = _input.x * velocidadGiro * Time.fixedDeltaTime;
+        _rb.MoveRotation(_rb.rotation * Quaternion.Euler(0, rot, 0));
     }
 
     public void OnMove(InputValue value)
     {
         _input = value.Get<Vector2>();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log($"Colision contra{collision.gameObject.name}");   
     }
 }
