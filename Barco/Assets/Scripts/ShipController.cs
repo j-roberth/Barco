@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Windows;
 
 public class ShipController : MonoBehaviour
 {
@@ -10,20 +7,25 @@ public class ShipController : MonoBehaviour
     public float velocidadGiro = 50f;
 
     private Vector2 _input;
+    [SerializeField] private Rigidbody _rb;
 
-    void Update()
+
+    void FixedUpdate()
     {
-      float movimientoVertical = _input.y;
-        
-      float movimientoHorizontal = _input.x;
+        Vector3 move = transform.forward * _input.y * velocidad;
+        _rb.linearVelocity = move;
 
-      transform.Translate(Vector3.forward * movimientoVertical * velocidad * Time.deltaTime);
-
-      transform.Rotate(Vector3.up * movimientoHorizontal * velocidadGiro * Time.deltaTime);
+        float rot = _input.x * velocidadGiro * Time.fixedDeltaTime;
+        _rb.MoveRotation(_rb.rotation * Quaternion.Euler(0, rot, 0));
     }
 
     public void OnMove(InputValue value)
     {
         _input = value.Get<Vector2>();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log($"Colision contra{collision.gameObject.name}");   
     }
 }
