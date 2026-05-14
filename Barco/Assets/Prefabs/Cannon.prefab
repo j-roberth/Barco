@@ -49,6 +49,7 @@ MonoBehaviour:
   _cannonBallPrefab: {fileID: 34344581966362990, guid: 561b1f5d9fc51e840a72a80248baf954, type: 3}
   _cannonTip: {fileID: 49297891526923}
   _playerGO: {fileID: 0}
+  _shootTime: 2
 --- !u!1 &5372357258681933352
 GameObject:
   m_ObjectHideFlags: 0
