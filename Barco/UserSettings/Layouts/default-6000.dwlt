@@ -657,12 +657,7 @@ MonoBehaviour:
       m_Data: 47766
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 47756
-    - m_Data: 47758
-    - m_Data: 47760
-    - m_Data: 47762
-    - m_Data: 47764
-    - m_Data: 47766
+    - m_Data: 47562
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -695,12 +690,7 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 47756
-    - m_Data: 47758
-    - m_Data: 47760
-    - m_Data: 47762
-    - m_Data: 47764
-    - m_Data: 47766
+    - m_Data: 47562
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1450,7 +1440,7 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_Size:
-    m_Target: 91.59841
+    m_Target: 365.72232
     speed: 2
     m_Value: 91.59841
   m_Ortho:

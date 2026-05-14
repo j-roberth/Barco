@@ -19,7 +19,16 @@ public class CannonBall : MonoBehaviour
         transform.position += ballMovement;
     }
 
-    //Agregar deteccion contra el player (OnCollisionEnter)
-    //HAcerle daño player (hay que hacer un sistema de vida)
-    //Destruir ésta instancia de bola de cañon. Destroy(gameObject);
+    private void OnCollisionEnter(Collision collision)
+    {
+        PlayerHealth playerHealth =
+            collision.gameObject.GetComponent<PlayerHealth>();
+
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(10);
+        }
+
+        Destroy(gameObject);
+    }
 }
