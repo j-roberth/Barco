@@ -7,8 +7,9 @@ public class ShipController : MonoBehaviour
     public float velocidadGiro = 50f;
 
     private Vector2 _input;
-    [SerializeField] private Rigidbody _rb;
 
+    [SerializeField] private Rigidbody _rb;
+    [SerializeField] private Cannon _cannon;
 
     void FixedUpdate()
     {
@@ -24,8 +25,6 @@ public class ShipController : MonoBehaviour
         _input = value.Get<Vector2>();
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log($"Colision contra{collision.gameObject.name}");   
-    }
-}
+
+            }
+      

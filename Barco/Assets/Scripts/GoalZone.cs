@@ -2,15 +2,23 @@ using UnityEngine;
 
 public class GoalZone : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Cannon[] _cannonsToDisable;
+    [SerializeField] private GameObject _winText;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        Debug.Log("Entró algo: " + other.name);
+
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("¡Llegaste al muelle!");
+
+            foreach(Cannon cannon in _cannonsToDisable)
+            {
+                cannon.enabled = false;
+            }
+
+            _winText.SetActive(true);
+        }
     }
 }
