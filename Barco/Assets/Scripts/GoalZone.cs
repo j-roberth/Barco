@@ -13,12 +13,21 @@ public class GoalZone : MonoBehaviour
         {
             Debug.Log("¡Llegaste al muelle!");
 
-            foreach(Cannon cannon in _cannonsToDisable)
+            if (_cannonsToDisable != null)
             {
-                cannon.enabled = false;
+                foreach (Cannon cannon in _cannonsToDisable)
+                {
+                    if (cannon != null)
+                    {
+                        cannon.enabled = false;
+                    }
+                }
             }
 
-            _winText.SetActive(true);
+            if (_winText != null)
+            {
+                _winText.SetActive(true);
+            }
         }
     }
 }
