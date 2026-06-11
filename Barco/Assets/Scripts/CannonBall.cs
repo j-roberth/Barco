@@ -21,6 +21,7 @@ public class CannonBall : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log($"Colisionócontra {collision.gameObject.name}"); 
         PlayerHealth playerHealth =
             collision.gameObject.GetComponent<PlayerHealth>();
 

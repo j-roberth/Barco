@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GoalZone : MonoBehaviour
 {
@@ -13,14 +14,11 @@ public class GoalZone : MonoBehaviour
         {
             Debug.Log("¡Llegaste al muelle!");
 
-            if (_cannonsToDisable != null)
+            foreach (Cannon cannon in _cannonsToDisable)
             {
-                foreach (Cannon cannon in _cannonsToDisable)
+                if (cannon != null)
                 {
-                    if (cannon != null)
-                    {
-                        cannon.enabled = false;
-                    }
+                    cannon.enabled = false;
                 }
             }
 
@@ -28,6 +26,8 @@ public class GoalZone : MonoBehaviour
             {
                 _winText.SetActive(true);
             }
+
+            SceneManager.LoadScene("MainScene");
         }
     }
 }
